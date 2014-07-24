@@ -1,7 +1,6 @@
 ---
 tags: AJAX, OO-JS
 languages: JavaScript, Rails, Ruby
-resources: N/A
 type: lab
 ---
 
@@ -35,9 +34,3 @@ That means you need to...
 - Set up the correct associations.
 - Create a view that displays all of a user's boards.
 - Create or use an authentication and authorization system.
-
-
-## Resources
-
- * [Jasmine 2.0 Documentation](http://jasmine.github.io/2.0/introduction.html)
- * [Finshed Example of App Here](http://flatiron-school-curriculum.github.io/js-oo-task-list/)
