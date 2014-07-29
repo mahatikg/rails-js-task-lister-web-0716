@@ -1,4 +1,9 @@
 class TasksController < ApplicationController
+
+  def index
+    binding.pry
+  end
+
   def create
     @task = Task.new(task_params)
     if @task.save

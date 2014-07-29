@@ -12,10 +12,9 @@ TasksController.prototype.deleteTask = function(){
     Task.delete(taskId);
   });
 };
+
 TasksController.prototype.createTask = function(dataObj){
   var task = new Task(dataObj),
-      $description = $taskDescription,
-      $priority = $taskPriority,
       $taskPriority = $("#task_priority"),
       $taskDescription = $("#task_description"),
       $listUl = $("#list-" + task.list.id);
@@ -24,7 +23,6 @@ TasksController.prototype.createTask = function(dataObj){
   $description.val("");
   $priority.val("");
 };
-
 
 TasksController.prototype.createTaskListener = function(){
   var $taskForm = $("#add_task"),

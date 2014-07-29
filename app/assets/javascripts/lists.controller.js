@@ -25,6 +25,7 @@ ListsController.prototype.createFormListener = function(){
   });
 };
 
+// Our JSON response from the sever looks like this...
 //{id: 9, title: "something", created_at: "2014-07-28T21:07:25.154Z", updated_at: "2014-07-28T21:07:25.154Z"}
 ListsController.prototype.createList = function(response){
   var $listInputs = $("#add_list").find("input").first(),
@@ -61,6 +62,7 @@ ListsController.prototype.deleteList = function(){
   });
 };
 
+// Our JSON response from the sever looks like this...
 // [{"id":1,"title":"something"}]
 ListsController.prototype.displayLists = function(){
   var that = this;
@@ -74,6 +76,28 @@ ListsController.prototype.displayLists = function(){
     },
     error: function(){alert("failure!");}
   });
+};
+
+// Once all our lists are loaded we need to display all their tasks if they have any
+ListsController.prototype.displayTasks = function(){
+  var that = this;
+
+  for(id in List.all){
+    var list = List.all[id];
+    $.ajax({
+      url: "/lists/" + list.id + "/tasks.json",
+      dataType: "JSON",
+      success: function(response){
+        response.forEach(function(obj){
+          // who should make this??
+          that.createTask(obj);
+        });
+      },
+      error: function(){alert("failure!");}
+    });
+    
+  }
+
 };
 
 ListsController.prototype.init = function(){
