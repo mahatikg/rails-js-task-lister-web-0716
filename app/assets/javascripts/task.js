@@ -1,14 +1,13 @@
 // Task Model
 
-function Task (description, priority, list) {
-  this.description = description;
-  this.priority = priority;
-  this.list = list;
-  this.id = this.constructor.count++;
+function Task (dataObj) {
+  this.description = dataObj.description;
+  this.priority = dataObj.priority;
+  this.list = List.all[dataObj.list_id];
   this.constructor.all[this.id] = this;
 }
 
-Task.count = 0;
+
 Task.all = {};
 
 Task.delete = function(id){

@@ -1,21 +1,13 @@
 // List Model
 
-function List (title) {
-  this.title = title;
+function List (dataObj) {
+  this.title = dataObj.title;
   this.tasks = [];
-  this.id = this.constructor.count++;
+  this.id = dataObj.id;
   this.constructor.all[this.id] = this;
 }
 
-List.count = 0;
 List.all = {};
-/*
-  {
-    0: list,
-    1: list,
-    2: list
-  }
-*/
 
 List.delete = function(id){
   var deletedList = this.all[id];
