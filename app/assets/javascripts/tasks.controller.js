@@ -6,10 +6,16 @@ function TasksController (argument) {
 TasksController.all = [];
 
 TasksController.prototype.deleteTask = function(){
-  var $listSection = $('#lists');
+  var $listSection = $('#lists'),
+      that = this;
 
   $listSection.on("click", ".destroy-task", function(){
-    var taskId = parseInt($(this).data("id"));
+    var $task = $(this),
+        taskId = $task.data("id"),
+        listId = $task.parent().parent().data("id");
+    debugger
+        aUrl = "/lists/" + listId + "/tasks/" + taskId;
+    
     $(this).parent().remove();
     Task.delete(taskId);
   });
@@ -60,7 +66,7 @@ TasksController.prototype.createTaskListener = function(){
 TasksController.prototype.ajax = function(aUrl, HttpVerb, callBack, userData) {
   // In case the list instance is needed
   var that = this;
-  debugger
+
   $.ajax({
     url: aUrl,
     type: HttpVerb,
