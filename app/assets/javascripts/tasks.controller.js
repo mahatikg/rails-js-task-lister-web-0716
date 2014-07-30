@@ -20,8 +20,8 @@ TasksController.prototype.createTask = function(dataObj){
       $listUl = $("#list-" + task.list.id);
 
   $listUl.append(task.li());
-  $description.val("");
-  $priority.val("");
+  $taskDescription.val("");
+  $taskPriority.val("");
 };
 
 TasksController.prototype.createTaskListener = function(){
