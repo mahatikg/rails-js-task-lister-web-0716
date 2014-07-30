@@ -1,10 +1,12 @@
 class TasksController < ApplicationController
 
   def index
-    binding.pry
+    @tasks = List.find(params[:list_id]).tasks
+    render json: @tasks
   end
 
   def create
+    binding.pry
     @task = Task.new(task_params)
     if @task.save
       render json: @task

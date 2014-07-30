@@ -1,8 +1,9 @@
-// Lists Controller
-
 function ListsController (argument) {
-
+  this.constructor.all.push(this);
 }
+// in case we ever need to access the instance of the controller
+// we will store it in an array
+ListsController.all = [];
 
 ListsController.prototype.createFormListener = function(){
   var $listInputs = $("#add_list").find("input"),
@@ -14,8 +15,10 @@ ListsController.prototype.createFormListener = function(){
 
   $submitListButton.on("click", function(e){
     e.preventDefault();
+    // get user input into a structure to send it
+    var userData = {list: {title: $listInputs.first().val()}};
     // our custom AJAX method
-    that.ajax('/lists', "POST", createList);
+    that.ajax('/lists', "POST", that.createList, userData);
   });
 
 };
@@ -50,13 +53,12 @@ ListsController.prototype.deleteList = function(){
         listId = parseInt($deletedList.data("id"), 10),
         aUrl = "/lists/" + listId,
         // saving our function to make our ajax call more readable
-        removeLists = function(){
-        debugger 
+        removeList = function(){
           $deletedList.closest(".list").remove();
           // List.delete(listId);
         };
 
-    that.ajax(aUrl, "DELETE", removeLists);
+    that.ajax(aUrl, "DELETE", removeList);
   });
 };
 
@@ -67,53 +69,43 @@ ListsController.prototype.displayLists = function(){
       appendLists = function(response){
         response.forEach(function(obj){
           that.createList(obj);
+          that.displayListsTasks();
         });
       };
 
   that.ajax("/lists.json", "GET", appendLists);
-
 };
 
 // Once all our lists are loaded we need to display all their tasks if they have any
-// ListsController.prototype.displayTasks = function(){
-//   var that = this;
+ListsController.prototype.displayListsTasks = function(){
+  var that = this,
+      createTasks = function(response){
+        // our server returns an array of tasks to create
+        response.forEach(function(obj){
+          // grab the instance of the task controller to create new tasks
+          TasksController.all[0].createTask(obj);
+        });
+      };
 
-//   for(var id in List.all){
-//     var list = List.all[id];
-//     $.ajax({
-//       url: "/lists/" + list.id + "/tasks.json",
-//       type: "GET",
-//       dataType: "JSON",
-//       success: function(response){
-//         response.forEach(function(obj){
-//           // who should make this??
-//           that.createTask(obj);
-//         });
-//       },
-//       error: function(){alert("failure!");}
-//     });
-    
-//   }
+  for(var id in List.all){
+    var aUrl = "/lists/" + id + "/tasks";
+    that.ajax(aUrl, "GET", createTasks);
+  }
 
-// };
+};
 
 // This method will allow us to dry out our JS controllers when doing AJAX
-ListsController.prototype.ajax = function(aUrl, HttpVerb, callBack) {
+ListsController.prototype.ajax = function(aUrl, HttpVerb, callBack, userData) {
   // In case the list instance is needed
   var that = this;
-
   $.ajax({
     url: aUrl,
     type: HttpVerb,
+    // data is optional and will default to undefined if not passed in
+    data: userData,
     dataType: "JSON",
     success: function(response){ 
-      try {
-          // default to calling our callback as a mehtod on our list
-          that.callBack(response);
-      } catch(e) {
-          // call it the callback as a regular function
-          callBack(response);
-      } 
+      callBack(response);
     },
     error: function(){alert("failure!");}
   });

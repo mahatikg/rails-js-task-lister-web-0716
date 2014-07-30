@@ -17,46 +17,10 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    @list = List.find(params[:list][:id])
+    @list = List.find(params[:id])
     @list.destroy
+    # The controller needs to render something
+    # for the response so that the AJAX doesnt break
     render json: {}
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def index
-#   @lists = List.all
-#   respond_to do |format|
-#     format.html # index.html.erb
-#     format.json { render json: @lists }
-#   end
-# end
-
-# def create 
-#   # ajax post creates new List instance based on js model
-#   @list = List.new(title: params["title"])
-#   # response of newy saved list instance including id
-#   if list.save
-#     render json: @list
-#   else
-#     "error"
-#   end 
-
-# end
