@@ -69,7 +69,7 @@ ListsController.prototype.displayLists = function(){
       appendLists = function(response){
         response.forEach(function(obj){
           that.createList(obj);
-          that.displayListsTasks();
+          that.displayListsTasks(obj);
         });
       };
 
@@ -77,8 +77,9 @@ ListsController.prototype.displayLists = function(){
 };
 
 // Once all our lists are loaded we need to display all their tasks if they have any
-ListsController.prototype.displayListsTasks = function(){
+ListsController.prototype.displayListsTasks = function(obj){
   var that = this,
+      aUrl = "/lists/" + obj.id + "/tasks",
       createTasks = function(response){
         // our server returns an array of tasks to create
         response.forEach(function(obj){
@@ -87,10 +88,7 @@ ListsController.prototype.displayListsTasks = function(){
         });
       };
 
-  for(var id in List.all){
-    var aUrl = "/lists/" + id + "/tasks";
-    that.ajax(aUrl, "GET", createTasks);
-  }
+  that.ajax(aUrl, "GET", createTasks);
 
 };
 
