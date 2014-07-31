@@ -13,11 +13,12 @@ TasksController.prototype.deleteTask = function(){
     var $task = $(this),
         taskId = $task.data("id"),
         listId = $task.parent().parent().data("id");
-    debugger
-        aUrl = "/lists/" + listId + "/tasks/" + taskId;
-    
-    $(this).parent().remove();
-    Task.delete(taskId);
+        aUrl = "/lists/" + listId + "/tasks/" + taskId,
+        removeTask = function(){
+          $task.parent().remove();
+          Task.delete(taskId);
+        };
+    that.ajax(aUrl, "DELETE", removeTask);
   });
 };
 

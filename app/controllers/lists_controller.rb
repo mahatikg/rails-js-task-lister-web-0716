@@ -19,8 +19,6 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find(params[:id])
     @list.destroy
-    # The controller needs to render something
-    # for the response so that the AJAX doesnt break
-    render json: {}
+    render json: @list
   end
 end

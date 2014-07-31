@@ -3,6 +3,7 @@
 function Task (dataObj) {
   this.description = dataObj.description;
   this.priority = dataObj.priority;
+  this.id = dataObj.id;
   this.list = List.all[dataObj.list_id];
   this.constructor.all[this.id] = this;
 }
