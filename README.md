@@ -5,6 +5,9 @@ type: lab
 ---
 
 # Task Lister
+
+## Introduction
+
 This lab is going to follow a different format from your others.  Instead of being about passing all the tests provided and submitting a pull request when you've passed them, this lab is set up like a real project. You're objective is to deliver an MVP (Minimum Viable Product), then if you have time, achieve the successive milestones.  Each milestone will have a list of criteria you need to complete before moving on to the next one.  ___There is no requirement for how many you need to complete to finish the lab.___  They're meant to serve as a guide for how this project __should__ progress, and to you give a sense of how projects in general should progress incrementally.
 
 ##MVP (Integrating your front end app with Rails.)
