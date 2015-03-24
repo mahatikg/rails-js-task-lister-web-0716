@@ -16,7 +16,7 @@ So you've made your front end version of the todo list. You're now going to inco
 That means you need to...
 - Make a Rails App.
 - Create Rails models with the correct associations.
-- Integrate your HTML and CSS from the [JS-OO-Task-List](https://learn.flatironschool.com/admin/lessons/3644) into your Rails app.
+- Integrate your HTML and CSS from the [JS-OO-Task-List](https://learn.flatironschool.com/lessons/3644) into your Rails app.
 - Integrate your JS models and controllers into `app/assets/javascripts`
 - Come up with a way to integrate your AJAX actions from your JS to rails with whatever type of response you want, JSON or rendered HTML.
 
