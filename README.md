@@ -22,6 +22,9 @@ My goals outlined to meet the MVP during lab review:
 
 
 # Task Lister
+
+## Introduction
+
 This lab is going to follow a different format from your others.  Instead of being about passing all the tests provided and submitting a pull request when you've passed them, this lab is set up like a real project. You're objective is to deliver an MVP (Minimum Viable Product), then if you have time, achieve the successive milestones.  Each milestone will have a list of criteria you need to complete before moving on to the next one.  ___There is no requirement for how many you need to complete to finish the lab.___  They're meant to serve as a guide for how this project __should__ progress, and to you give a sense of how projects in general should progress incrementally.
 
 ##MVP (Integrating your front end app with Rails.)
@@ -30,7 +33,7 @@ So you've made your front end version of the todo list. You're now going to inco
 That means you need to...
 - Make a Rails App.
 - Create Rails models with the correct associations.
-- Integrate your HTML and CSS from the [JS-OO-Task-List](https://github.com/flatiron-school-students/js-oo-task-list-ruby-005) into your Rails app.
+- Integrate your HTML and CSS from the [JS-OO-Task-List](https://learn.flatironschool.com/lessons/3644) into your Rails app.
 - Integrate your JS models and controllers into `app/assets/javascripts`
 - Come up with a way to integrate your AJAX actions from your JS to rails with whatever type of response you want, JSON or rendered HTML.
 
@@ -40,8 +43,8 @@ The goal is to have something along the lines of [Trello](https://trello.com/), 
 That means you need to...
 - Create your Rails model, views, and controller.
 - Create a new JS model and controller.
-- Create a view that list of all the boards.
-- Create a show page for each board that you can make and view a new list from. (Don't forget about the Tasks that need to be made on the page too).
+- Create a view that displays a list of all the boards.
+- Create a show page for each board. (The board should display its lists. Don't forget about the Tasks that need to be made on the page, too.)
 
 ##Milestone 2 (Getting users on board.)
 Now that you have an awesome version of your app its time to let users get in on it.  This part of the lab is more Rails heavy than JS.  You'll need to make a User model.  In Trello a user has many boards and many tasks.
