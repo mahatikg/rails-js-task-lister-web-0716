@@ -26,8 +26,8 @@ The goal is to have something along the lines of [Trello](https://trello.com/), 
 That means you need to...
 - Create your Rails model, views, and controller.
 - Create a new JS model and controller.
-- Create a view that list of all the boards.
-- Create a show page for each board that you can make and view a new list from. (Don't forget about the Tasks that need to be made on the page too).
+- Create a view that displays a list of all the boards.
+- Create a show page for each board. (The board should display its lists. Don't forget about the Tasks that need to be made on the page, too.)
 
 ##Milestone 2 (Getting users on board.)
 Now that you have an awesome version of your app its time to let users get in on it.  This part of the lab is more Rails heavy than JS.  You'll need to make a User model.  In Trello a user has many boards and many tasks.
