@@ -1,9 +1,3 @@
----
-tags: AJAX, OO-JS
-languages: JavaScript, Rails, Ruby
-type: lab
----
-
 # Task Lister
 
 ## Introduction
