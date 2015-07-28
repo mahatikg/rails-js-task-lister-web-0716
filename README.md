@@ -1,9 +1,3 @@
----
-tags: AJAX, OO-JS
-languages: JavaScript, Rails, Ruby
-type: lab
----
-
 My goals outlined to meet the MVP during lab review:
 
   1. incorporate all the js/css/html from the previous project
