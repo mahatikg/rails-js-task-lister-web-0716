@@ -36,3 +36,5 @@ That means you need to...
 Think about how you want things to work. Can you view a todo list or specific page if you aren't logged in? If not, what happens when a user tries to go to that board? Do you let users log in using a modal popup? Do you just redirect users to a login page? Once a user is logged in, are they redirected to a generic page or back to the page they were originally trying to get to? 
 
 Make your app user experience really great. 
+
+<a href='https://learn.co/lessons/rails-js-task-lister' data-visibility='hidden'>View this lesson on Learn.co</a>
