@@ -37,4 +37,4 @@ Think about how you want things to work. Can you view a todo list or specific pa
 
 Make your app user experience really great. 
 
-<a href='https://learn.co/lessons/rails-js-task-lister' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/rails-js-task-lister' title='Task Lister'>Task Lister</a> on Learn.co and start learning to code for free.</p>
